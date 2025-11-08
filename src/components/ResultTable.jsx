@@ -112,78 +112,117 @@ function ResultTable({ keyword, user, onAdded }) {
       {editing && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h4>Chỉnh sửa người dùng</h4>
+            <h4>✏️ Chỉnh sửa người dùng</h4>
 
-            <label htmlFor="edit-name">Name:</label>
-            <input
-              id="edit-name"
-              type="text"
-              value={editing.name}
-              onChange={(e) => handleEditChange("name", e.target.value)}
-            />
+            {/* Thông tin cơ bản - 2 cột */}
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="edit-name">Họ và tên *</label>
+                <input
+                  id="edit-name"
+                  type="text"
+                  placeholder="Nhập họ tên"
+                  value={editing.name}
+                  onChange={(e) => handleEditChange("name", e.target.value)}
+                />
+              </div>
 
-            <label htmlFor="edit-username">Username:</label>
-            <input
-              id="edit-username"
-              type="text"
-              value={editing.username}
-              onChange={(e) => handleEditChange("username", e.target.value)}
-            />
+              <div className="form-group">
+                <label htmlFor="edit-username">Username *</label>
+                <input
+                  id="edit-username"
+                  type="text"
+                  placeholder="Nhập username"
+                  value={editing.username}
+                  onChange={(e) => handleEditChange("username", e.target.value)}
+                />
+              </div>
+            </div>
 
-            <label htmlFor="edit-email">Email:</label>
-            <input
-              id="edit-email"
-              type="email"
-              value={editing.email}
-              onChange={(e) => handleEditChange("email", e.target.value)}
-            />
+            {/* Email - Full width */}
+            <div className="form-row">
+              <div className="form-group full-width">
+                <label htmlFor="edit-email">📧 Email</label>
+                <input
+                  id="edit-email"
+                  type="email"
+                  placeholder="example@email.com"
+                  value={editing.email}
+                  onChange={(e) => handleEditChange("email", e.target.value)}
+                />
+              </div>
+            </div>
 
-            <label htmlFor="edit-street">Street:</label>
-            <input
-              id="edit-street"
-              type="text"
-              value={editing.address.street}
-              onChange={(e) => handleEditChange("street", e.target.value)}
-            />
+            {/* Địa chỉ - 2 cột */}
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="edit-street">🏠 Đường</label>
+                <input
+                  id="edit-street"
+                  type="text"
+                  placeholder="Số nhà, tên đường"
+                  value={editing.address.street}
+                  onChange={(e) => handleEditChange("street", e.target.value)}
+                />
+              </div>
 
-            <label htmlFor="edit-suite">Suite:</label>
-            <input
-              id="edit-suite"
-              type="text"
-              value={editing.address.suite}
-              onChange={(e) => handleEditChange("suite", e.target.value)}
-            />
+              <div className="form-group">
+                <label htmlFor="edit-suite">🏢 Phòng/Tầng</label>
+                <input
+                  id="edit-suite"
+                  type="text"
+                  placeholder="Apt. 123"
+                  value={editing.address.suite}
+                  onChange={(e) => handleEditChange("suite", e.target.value)}
+                />
+              </div>
+            </div>
 
-            <label htmlFor="edit-city">City:</label>
-            <input
-              id="edit-city"
-              type="text"
-              value={editing.address.city}
-              onChange={(e) => handleEditChange("city", e.target.value)}
-            />
+            {/* Thành phố - Full width */}
+            <div className="form-row">
+              <div className="form-group full-width">
+                <label htmlFor="edit-city">🌆 Thành phố</label>
+                <input
+                  id="edit-city"
+                  type="text"
+                  placeholder="Tên thành phố"
+                  value={editing.address.city}
+                  onChange={(e) => handleEditChange("city", e.target.value)}
+                />
+              </div>
+            </div>
 
-            <label htmlFor="edit-phone">Phone:</label>
-            <input
-              id="edit-phone"
-              type="text"
-              value={editing.phone}
-              onChange={(e) => handleEditChange("phone", e.target.value)}
-            />
+            {/* Liên hệ - 2 cột */}
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="edit-phone">📱 Số điện thoại</label>
+                <input
+                  id="edit-phone"
+                  type="text"
+                  placeholder="0123456789"
+                  value={editing.phone}
+                  onChange={(e) => handleEditChange("phone", e.target.value)}
+                />
+              </div>
 
-            <label htmlFor="edit-website">Website:</label>
-            <input
-              id="edit-website"
-              type="text"
-              value={editing.website}
-              onChange={(e) => handleEditChange("website", e.target.value)}
-            />
+              <div className="form-group">
+                <label htmlFor="edit-website">🌐 Website</label>
+                <input
+                  id="edit-website"
+                  type="text"
+                  placeholder="www.example.com"
+                  value={editing.website}
+                  onChange={(e) => handleEditChange("website", e.target.value)}
+                />
+              </div>
+            </div>
 
             <div className="modal-buttons">
               <button className="btn-save" onClick={saveUser}>
-                Lưu
+                ✓ Lưu
               </button>
               <button className="btn-cancel" onClick={() => setEditing(null)}>
-                Hủy
+                ✕ Hủy
               </button>
             </div>
           </div>
